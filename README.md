@@ -6,6 +6,12 @@ A production-ready MERN stack CRM and Lead Management application. It features a
 **Frontend:** React 19, Vite, React Router DOM, Tailwind CSS, Zod, React Hook Form, React Three Fiber (for 3D assets), GSAP (for animations).
 **Backend:** Node.js, Express.js, MongoDB Atlas, Mongoose, JWT Auth, Helmet, Express Validator.
 
+## AI Integration
+This project showcases a hybrid development approach using advanced AI coding tools:
+- **UI & Frontend Design:** Built using the **Stitch MCP Server** to rapidly prototype and integrate high-fidelity, interactive components.
+- **Backend Auth & Security:** Engineered with **Antigravity** to ensure robust JWT handling, secure data validation, and protected API routes.
+- **Deployment & Architecture:** Configured and deployed with the guidance of **Codex** to ensure a seamless build process and environment configuration.
+
 ---
 
 ## Deliverables & Setup
