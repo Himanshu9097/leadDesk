@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  /* Digital Heroes Co Palette */
+  --color-background: #ECEBE0;
+  --color-foreground: #111812;
+  
+  --color-muted: #E2E1D4;
+  --color-muted-foreground: #6B726C;
+  
+  --color-accent: #3F6B54;
+  --color-accent-secondary: #98A399;
+  --color-accent-foreground: #FFFFFF;
+  
+  --color-border: #D1D0C4;
+  --color-card: #FFFFFF;
+  --color-ring: #3F6B54;
+  
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: 'Calistoga', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.08);
+  --shadow-xl: 0 20px 25px rgba(0,0,0,0.1);
+  --shadow-accent: 0 4px 14px rgba(63, 107, 84, 0.25);
+  --shadow-accent-lg: 0 8px 24px rgba(63, 107, 84, 0.35);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased font-sans;
+  }
+  
+  h1, h2 {
+    @apply font-serif;
+  }
+}
+
+/* Custom utilities */
+@layer utilities {
+  .gradient-text {
+    background: linear-gradient(to right, var(--color-accent), var(--color-accent-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .gradient-underline {
+    position: absolute;
+    bottom: -0.25rem;
+    left: 0;
+    height: 0.75rem;
+    width: 100%;
+    border-radius: 0.125rem;
+    background: linear-gradient(to right, rgba(63, 107, 84, 0.15), rgba(152, 163, 153, 0.1));
+  }
+
+  .bg-dot-pattern {
+    background-image: radial-gradient(circle, white 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+}
