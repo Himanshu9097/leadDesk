@@ -26,22 +26,19 @@ To create your Loom walkthrough video, we recommend covering the following flow:
 
 ### 3. Deployment Guide
 
-**Frontend (Vercel)**
-1. Connect your GitHub repository to Vercel.
-2. Select the `client` directory as the Root Directory.
-3. Vercel will automatically detect Vite. The build command is `npm run build` and the output directory is `dist`.
-4. Ensure you add `VITE_API_URL` to the Vercel Environment Variables, pointing to your deployed backend URL.
-
-**Backend (Render)**
-1. Connect your GitHub repository to Render and create a new "Web Service".
-2. Set the Root Directory to `server`.
-3. Build command: `npm install`
-4. Start command: `node server.js`
-5. Add the following Environment Variables in Render:
-   - `PORT=5005`
-   - `MONGO_URI=your_mongodb_atlas_connection_string`
+**Vercel**
+1. Connect the repository root to Vercel, not just the `client` folder.
+2. Keep the root-level `vercel.json` so Vercel serves the React app and the `/api` serverless function together.
+3. Vercel will run the client build command from `vercel.json`: `npm --prefix client run build`.
+4. Add these Environment Variables in Vercel:
+   - `MONGODB_URI=your_mongodb_atlas_connection_string`
    - `JWT_SECRET=your_secure_random_string`
-   - `NODE_ENV=production`
+   - `CLIENT_URL=https://your-vercel-domain.vercel.app` if the frontend and API are on different domains
+5. If you deploy the frontend separately from the API, also set `VITE_API_URL` to the deployed API base URL.
+
+**Important**
+- If you previously set `MONGO_URI`, the app will now still accept it, but `MONGODB_URI` is the preferred name.
+- Registration will fail until MongoDB, JWT, and the deployed API URL are all configured correctly.
 
 ---
 
@@ -54,7 +51,7 @@ To create your Loom walkthrough video, we recommend covering the following flow:
    ```
 
 2. **Setup environment variables:**
-   - In `server`, copy `.env.example` to `.env` and fill in your `MONGO_URI` and `JWT_SECRET`.
+   - In `server`, copy `.env.example` to `.env` and fill in your `MONGODB_URI` and `JWT_SECRET`.
 
 3. **Start the development servers:**
    ```bash
